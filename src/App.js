@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import AddUser from './Components/AddUser/AddUser';
 import UserInfoTable from './Components/UserInfoTable/UserInfoTable';
 
 function App() {
@@ -12,12 +13,18 @@ function App() {
 
   const [users,setUsers] = useState(usersData);
 
+  const addUser = (user) => {
+    user.id = users.length + 1;
+    setUsers([...users, user])
+  }
+
   return (
     <div className="container mt-3">
       <h2>CRUD app with react</h2>
       <div class="row align-items-start">
     <div class="col mt-2">
       <h2>Add user</h2>
+      <AddUser addUser={addUser}></AddUser>
     </div>
     <div class="col mt-2">
       <h2>View user</h2>

@@ -13,7 +13,7 @@ const UserInfoTable = (props) => {
         </thead>
         <tbody>
       {
-        props.users.map((user) => (
+        props.users.map(user => (
           <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.username}</td>
