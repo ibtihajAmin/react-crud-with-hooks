@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const UserInfoTable = (props) => {
-    return (
-        <div>
-            <table class="table table-hover">
+  return (
+    <div>
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>Name</th>
@@ -12,22 +12,32 @@ const UserInfoTable = (props) => {
           </tr>
         </thead>
         <tbody>
-      {
-        props.users.map(user => (
-          <tr key={user.id}>
-            <td>{user.name}</td>
-            <td>{user.username}</td>
-            <td>
-            <button type="button" class="btn btn-outline-secondary me-2">Edit</button>
-            <button onClick={ ()=>props.deleteUser(user.id)} type="button" class="btn btn-outline-danger">Delete</button>
-            </td>
-          </tr>
-        ))
-      }
-    </tbody>
+          {props.users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.username}</td>
+              <td>
+                <button
+                  onClick={() => props.editRow(user)}
+                  type="button"
+                  class="btn btn-outline-secondary me-2"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => props.deleteUser(user.id)}
+                  type="button"
+                  class="btn btn-outline-danger"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default UserInfoTable;
