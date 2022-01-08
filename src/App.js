@@ -18,6 +18,10 @@ function App() {
     setUsers([...users, user])
   }
 
+  const deleteUser = (id) => {
+    setUsers(users.filter(user=>user.id!==id))
+  }
+
   return (
     <div className="container mt-3">
       <h2>CRUD app with react</h2>
@@ -28,7 +32,7 @@ function App() {
     </div>
     <div class="col mt-2">
       <h2>View user</h2>
-      <UserInfoTable users={users}></UserInfoTable>
+      <UserInfoTable users={users} deleteUser={deleteUser}></UserInfoTable>
     </div>
  
   </div>
